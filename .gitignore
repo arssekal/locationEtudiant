@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Compiled class file
 *.class
 
@@ -24,6 +23,8 @@
 hs_err_pid*
 replay_pid*
 =======
+=======
+>>>>>>> aa44aab54e9d859605132b8cc85af2526b8bec5b
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -61,5 +62,9 @@ build/
 .vscode/
 
 ### Mac OS ###
+<<<<<<< HEAD
 .DS_Store
 >>>>>>> aa44aab (premier commit: ajout de la structure de projet)
+=======
+.DS_Store
+>>>>>>> aa44aab54e9d859605132b8cc85af2526b8bec5b
