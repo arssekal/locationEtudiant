@@ -14,6 +14,7 @@ public class UtilisateurService {
         utilisateurDAO.save(utilisateur);
         return true;
     }
+
     public Utilisateur connecter(String email, String motDePasse) {
         if(!validerEmail(email) || !validerMotDePasse(motDePasse)) return null;
         Utilisateur utilisateur = utilisateurDAO.findByEmail(email);
@@ -21,6 +22,7 @@ public class UtilisateurService {
         if(motDePasse.equals(utilisateur.getMotDePasse())) return utilisateur;
         return null;
     }
+
     public  boolean emailExiste(String email) {
         Utilisateur utilisateur = utilisateurDAO.findByEmail(email);
         return utilisateur != null;
