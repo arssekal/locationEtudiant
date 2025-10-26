@@ -76,7 +76,7 @@ public class UtilisateurDAO {
                         .setParameter("email", email)
                         .getSingleResult();
             } catch (NoResultException e) {
-                return null; // aucun utilisateur trouvé
+                return null;
             }
         }
     }
