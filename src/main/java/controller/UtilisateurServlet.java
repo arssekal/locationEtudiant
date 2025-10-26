@@ -38,12 +38,13 @@ public class UtilisateurServlet extends HttpServlet {
         String role = request.getParameter("role");
 
         Utilisateur utilisateur = new Utilisateur(nom, email, motDePasse, role);
-        boolean succes = utilisateurService.inscrire(utilisateur);
-        if (succes) {
-            response.sendRedirect("login.jsp?success=1");
+        boolean success = utilisateurService.inscrire(utilisateur);
+
+        if (success) {
+            response.sendRedirect("jsp/login.jsp?success=1");
         } else {
             request.setAttribute("messageErreur", "Inscription échouée. Vérifiez vos informations !");
-            request.getRequestDispatcher("inscription.jsp").forward(request, response);
+            request.getRequestDispatcher("jsp/inscription.jsp").forward(request, response);
         }
     }
 
@@ -55,10 +56,10 @@ public class UtilisateurServlet extends HttpServlet {
         if(utilisateur != null) {
             HttpSession session = request.getSession();
             session.setAttribute("utilisateur", utilisateur);
-            response.sendRedirect("accueil.jsp");
+            response.sendRedirect("tableau_de_bord.jsp");
         } else {
             request.setAttribute("messageErreur", "Email ou mot de passe incorrect !");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
         }
     }
 
