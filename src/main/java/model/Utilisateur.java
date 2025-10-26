@@ -63,5 +63,12 @@ public class Utilisateur {
                 ", role='" + role + '\'' +
                 '}';
     }
+
+    public Utilisateur(String nom, String email, String motDePasse, String role) {
+        this.nom = nom;
+        this.email = email;
+        this.motDePasse = motDePasse;
+        this.role = role;
+    }
 }
 
