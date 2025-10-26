@@ -5,15 +5,15 @@
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
     	version="4.0">
 
- <display-name>locationEtudiant</display-name>
+    <display-name>locationEtudiant</display-name>
 
     <servlet>
-        <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>controller.HelloServlet</servlet-class>
+        <servlet-name>utilisateur</servlet-name>
+        <servlet-class>controller.UtilisateurServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/hello</url-pattern>
+        <servlet-name>utilisateur</servlet-name>
+        <url-pattern>/utilisateur</url-pattern>
     </servlet-mapping>
 </web-app>

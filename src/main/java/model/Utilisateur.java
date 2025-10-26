@@ -13,6 +13,15 @@ public class Utilisateur {
     private String motDePasse;
     private String role;
 
+    public Utilisateur() {}
+
+    public Utilisateur(String nom, String email, String motDePasse, String role) {
+        this.nom = nom;
+        this.email = email;
+        this.motDePasse = motDePasse;
+        this.role = role;
+    }
+
     public int getId() {
         return id;
     }
@@ -62,13 +71,6 @@ public class Utilisateur {
                 ", motDePasse='" + motDePasse + '\'' +
                 ", role='" + role + '\'' +
                 '}';
-    }
-
-    public Utilisateur(String nom, String email, String motDePasse, String role) {
-        this.nom = nom;
-        this.email = email;
-        this.motDePasse = motDePasse;
-        this.role = role;
     }
 }
 
