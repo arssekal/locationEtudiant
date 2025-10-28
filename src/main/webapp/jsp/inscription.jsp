@@ -1,41 +1,59 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Inscription - Location Étudiante</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-    <h2>Inscription</h2>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription - Location Étudiante</title>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/inscription.css">
+</head>
+<body>
+<div class="form-container">
+    <h2>Créer un compte</h2>
 
-    <!-- Affichage message d'erreur si existant -->
-    <% String messageErreur = (String) request.getAttribute("messageErreur");
-       if(messageErreur != null) { %>
+    <%
+        String messageErreur = (String) request.getAttribute("messageErreur");
+        if (messageErreur != null) {
+    %>
         <div class="erreur"><%= messageErreur %></div>
     <% } %>
 
     <form action="<%=request.getContextPath()%>/utilisateur" method="post">
         <input type="hidden" name="action" value="inscription">
 
-        <label>Nom :</label>
-        <input type="text" name="nom" required><br><br>
+        <div class="row">
+            <div class="input-group">
+                <label for="nom">Nom complet</label>
+                <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" autocomplete="off" required>
+            </div>
 
-        <label>Email :</label>
-        <input type="email" name="email" required><br><br>
+            <div class="input-group">
+                <label for="email">Adresse e-mail</label>
+                <input type="email" id="email" name="email" placeholder="exemple@email.com" autocomplete="off" required>
+            </div>
+        </div>
 
-        <label>Mot de passe :</label>
-        <input type="password" name="motDePasse" required><br><br>
+        <div class="row">
+            <div class="input-group">
+                <label for="motDePasse">Mot de passe</label>
+                <input type="password" id="motDePasse" name="motDePasse" placeholder="Minimum 8 caractères" autocomplete="new-password" required>
+            </div>
 
-        <label>Rôle :</label>
-        <select name="role" required>
-            <option value="etudiant">Étudiant</option>
-            <option value="admin">Admin</option>
-        </select><br><br>
+            <div class="input-group">
+                <label for="role">Rôle</label>
+                <select id="role" name="role" required>
+                    <option value="" disabled selected>Choisissez un rôle</option>
+                    <option value="etudiant">Étudiant</option>
+                    <option value="proprietaire">Proprietaire</option>
+                </select>
+            </div>
+        </div>
 
         <button type="submit">S’inscrire</button>
     </form>
 
-    <p>Déjà inscrit ? <a href="login.jsp">Connectez-vous ici</a></p>
-    </body>
+    <p class="redirect">Déjà inscrit ?
+        <a href="<%=request.getContextPath()%>/utilisateur/login">Connectez-vous ici</a>
+    </p>
+</div>
+</body>
 </html>
