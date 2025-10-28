@@ -36,7 +36,7 @@ public class UtilisateurDAO {
                 transaction.commit();
                 System.out.println("Utilisateur mis à jour !");
             } else {
-                System.out.println("Utilisateur introuvable.");
+                throw new RuntimeException("Utilisateur avec id: "+ utilisateurModifie.getId() +" n'est pas trouvé");
             }
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();

@@ -10,6 +10,7 @@ public class UtilisateurService {
     private final UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
 
     public  boolean inscrire(Utilisateur utilisateur) {
+        // if(!"etudiant".equals(utilisateur.getRole()) && !"proprietaire".equals(utilisateur.getRole())) return false;
         if(!validerUtilisateur(utilisateur).isEmpty()) return false;
         utilisateurDAO.save(utilisateur);
         return true;
