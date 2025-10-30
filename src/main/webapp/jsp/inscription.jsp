@@ -39,11 +39,18 @@
             </div>
 
             <div class="input-group">
+                <label for="confirmerMotDePasse">Confirmer le mot de passe</label>
+                <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse" placeholder="Répétez le mot de passe" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-group">
                 <label for="role">Rôle</label>
                 <select id="role" name="role" required>
                     <option value="" disabled selected>Choisissez un rôle</option>
                     <option value="etudiant">Étudiant</option>
-                    <option value="proprietaire">Proprietaire</option>
+                    <option value="proprietaire">Propriétaire</option>
                 </select>
             </div>
         </div>
