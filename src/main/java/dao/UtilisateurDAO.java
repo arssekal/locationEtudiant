@@ -9,16 +9,23 @@ import jakarta.persistence.NoResultException;
 public class UtilisateurDAO {
 
     public void save(Utilisateur utilisateur) {
+        Session session = null;
         Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();
+
             session.persist(utilisateur);
+
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             e.printStackTrace();
+        } finally {
+            if (session != null) session.close();
         }
     }
+
 
     public void update(Utilisateur utilisateurModifie) {
         Transaction transaction = null;

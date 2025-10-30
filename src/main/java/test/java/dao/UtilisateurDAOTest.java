@@ -12,7 +12,7 @@ public class UtilisateurDAOTest {
         u.setEmail("lhoussaine@test.com");
         u.setMotDePasse("123456");
         u.setRole("etudiant");
-        // dao.save(u);
+        dao.save(u);
 
         // Test findByEmail
         Utilisateur u2 = dao.findByEmail("lhoussaine@test.com");
@@ -20,7 +20,7 @@ public class UtilisateurDAOTest {
 
         // // Test update
         u2.setNom("LhoussaineModif");
-        //dao.update(u2);
+        dao.update(u2);
 
         // // Test delete
         dao.delete(u2.getId());

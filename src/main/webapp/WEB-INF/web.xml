@@ -12,6 +12,17 @@
         <servlet-class>controller.UtilisateurServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>testConnexion</servlet-name>
+        <servlet-class>DB.TestConnexionServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>testConnexion</servlet-name>
+        <url-pattern>/testConnexion</url-pattern>
+    </servlet-mapping>
+
+
     <servlet-mapping>
         <servlet-name>utilisateur</servlet-name>
         <url-pattern>/utilisateur/*</url-pattern>

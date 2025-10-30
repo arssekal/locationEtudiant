@@ -1,5 +1,10 @@
 package controller;
 
-public class AnnonceServlet {
+import jakarta.servlet.http.HttpServlet;
+
+public class AnnonceServlet  extends HttpServlet {
+
+
+
 
 }
