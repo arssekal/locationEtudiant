@@ -11,7 +11,7 @@ public class Utilisateur {
     private String nom;
     private String email;
     private String motDePasse;
-    private String role;
+    private String role; // Etudaint ou Proprietaire 
 
     public Utilisateur() {}
 
