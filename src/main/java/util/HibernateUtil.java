@@ -1,5 +1,9 @@
 package util;
 
+import model.Utilisateur;
+import model.Annonce;
+import model.Message;
+import model.Favori;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -15,6 +19,12 @@ public class HibernateUtil {
             Configuration configuration = new Configuration();
             configuration.configure("hibernate.cfg.xml");
 
+            // ✅ AJOUT EXPLICITE DES ENTITÉS
+            configuration.addAnnotatedClass(Utilisateur.class);
+            configuration.addAnnotatedClass(Annonce.class);
+            configuration.addAnnotatedClass(Message.class);
+            configuration.addAnnotatedClass(Favori.class);
+
             // Créer le ServiceRegistry
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties())
@@ -27,6 +37,7 @@ public class HibernateUtil {
             return sessionFactory;
         } catch (Throwable ex) {
             System.err.println("❌ Erreur d'initialisation Hibernate : " + ex);
+            ex.printStackTrace();
             throw new ExceptionInInitializerError(ex);
         }
     }
@@ -36,6 +47,9 @@ public class HibernateUtil {
     }
 
     public static void shutdown() {
-        getSessionFactory().close();
+        if (sessionFactory != null) {
+            sessionFactory.close();
+            System.out.println("✅ SessionFactory fermée");
+        }
     }
 }

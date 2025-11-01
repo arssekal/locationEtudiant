@@ -30,7 +30,7 @@ public class UtilisateurDAO {
     public void update(Utilisateur utilisateurModifie) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            int id = utilisateurModifie.getId();
+            Long id = utilisateurModifie.getId();
             Utilisateur utilisateurExistant = session.find(Utilisateur.class, id);
             if (utilisateurExistant != null) {
                 transaction = session.beginTransaction();

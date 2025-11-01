@@ -1,4 +1,4 @@
-package test.java.db;
+package db;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
