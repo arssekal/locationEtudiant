@@ -11,7 +11,7 @@
 
     <!-- Section gauche avec image -->
     <div class="image-side">
-        <img src="<%=request.getContextPath()%>/images/etudiants.jpg" alt="Location Étudiante">
+        <img src="<%=request.getContextPath()%>/images/house.png" alt="Location Étudiante">
         <div class="overlay-text">
             <h1>Location Étudiante</h1>
             <p>Trouvez facilement votre logement universitaire.</p>
