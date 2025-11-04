@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-    <h2>Application JEE Maven fonctionne ✅</h2>
-</body>
+    <body>
+        <h2>Application JEE Maven fonctionne</h2>
+    </body>
 </html>

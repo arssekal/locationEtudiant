@@ -28,7 +28,7 @@
             <% } %>
 
             <% if ("1".equals(request.getParameter("logout"))) { %>
-            <div class="success">Vous avez été déconnecté avec succès.</div>
+            <div class="message success">Vous avez été déconnecté avec succès.</div>
             <% } %>
 
             <form action="<%=request.getContextPath()%>/utilisateur" method="post">
@@ -36,12 +36,12 @@
 
                 <div class="input-group">
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="exemple@email.com" required>
+                    <input type="email" name="email" placeholder="exemple@email.com" required autocomplete="off">
                 </div>
 
                 <div class="input-group">
                     <label>Mot de passe</label>
-                    <input type="password" name="motDePasse" placeholder="********" required>
+                    <input type="password" name="motDePasse" placeholder="********" required autocomplete="new-password">
                 </div>
 
                 <button type="submit" class="btn-login">Se connecter</button>
