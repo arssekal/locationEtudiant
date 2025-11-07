@@ -23,6 +23,6 @@ public class UtilisateurDAOTest {
         //dao.update(u2);
 
         // // Test delete
-        dao.delete(u2.getId());
+        dao.delete(Math.toIntExact(u2.getId()));
     }
 }

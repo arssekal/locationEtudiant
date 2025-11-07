@@ -6,6 +6,19 @@
     	version="4.0">
 
     <display-name>locationEtudiant</display-name>
+<!--    <welcome-file-list>-->
+<!--        <welcome-file>utilisateur/login</welcome-file>-->
+<!--    </welcome-file-list>-->
+
+
+    <servlet>
+        <servlet-name>verifier-code</servlet-name>
+        <servlet-class>controller.VerifierCodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>verifier-code</servlet-name>
+        <url-pattern>/verification</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>utilisateur</servlet-name>
@@ -16,4 +29,18 @@
         <servlet-name>utilisateur</servlet-name>
         <url-pattern>/utilisateur/*</url-pattern>
     </servlet-mapping>
+
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/jsp/erreurs.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/jsp/erreurs.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/WEB-INF/jsp/erreurs.jsp</location>
+    </error-page>
 </web-app>
