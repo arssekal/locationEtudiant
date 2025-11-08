@@ -17,9 +17,5 @@
         <mapping class="model.Favori"/>
         <mapping class="model.VueAnnonce"/>
 
-
-
-
-
     </session-factory>
 </hibernate-configuration>

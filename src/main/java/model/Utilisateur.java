@@ -87,6 +87,8 @@ public class Utilisateur {
     private List<Message> messagesRecus;
 
 
+    public int getId(int id) { return this.id;}
+
     public void setId(int id) {
         this.id = id;
     }
