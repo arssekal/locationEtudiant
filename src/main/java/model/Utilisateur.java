@@ -2,8 +2,12 @@ package model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Entity
 @Table(name = "utilisateur")
+
 public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,7 +15,7 @@ public class Utilisateur {
     private String nom;
     private String email;
     private String motDePasse;
-    private String role; // Etudaint ou Proprietaire 
+    private String role; // Etudaint ou Proprietaire
 
     public Utilisateur() {}
 
@@ -22,9 +26,68 @@ public class Utilisateur {
         this.role = role;
     }
 
-    public int getId() {
-        return id;
+    public Long getId() {
+        return (long) id;
     }
+
+    @Column(name = "date_inscription")
+    private LocalDateTime dateInscription;
+
+    // Relations
+    @OneToMany(mappedBy = "proprietaire")
+    private List<Annonce> annonces;
+
+    public LocalDateTime getDateInscription() {
+        return dateInscription;
+    }
+
+    public void setDateInscription(LocalDateTime dateInscription) {
+        this.dateInscription = dateInscription;
+    }
+
+    public List<Annonce> getAnnonces() {
+        return annonces;
+    }
+
+    public void setAnnonces(List<Annonce> annonces) {
+        this.annonces = annonces;
+    }
+
+    public List<Favori> getFavoris() {
+        return favoris;
+    }
+
+    public void setFavoris(List<Favori> favoris) {
+        this.favoris = favoris;
+    }
+
+    public List<Message> getMessagesEnvoyes() {
+        return messagesEnvoyes;
+    }
+
+    public void setMessagesEnvoyes(List<Message> messagesEnvoyes) {
+        this.messagesEnvoyes = messagesEnvoyes;
+    }
+
+    public List<Message> getMessagesRecus() {
+        return messagesRecus;
+    }
+
+    public void setMessagesRecus(List<Message> messagesRecus) {
+        this.messagesRecus = messagesRecus;
+    }
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Favori> favoris;
+
+    @OneToMany(mappedBy = "expediteur")
+    private List<Message> messagesEnvoyes;
+
+    @OneToMany(mappedBy = "destinataire")
+    private List<Message> messagesRecus;
+
+
+    public int getId(int id) { return this.id;}
 
     public void setId(int id) {
         this.id = id;

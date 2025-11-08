@@ -8,9 +8,13 @@
 
 /* === Container principal === */
 .page-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100%;
     min-height: 100vh;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
     align-items: stretch;
     position: relative;
     overflow: hidden;
@@ -18,29 +22,42 @@
 
 /* === Image côté gauche === */
 .image-side {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 45%;
     flex: 0 0 45%;
     min-width: 360px;
     max-width: 720px;
     position: relative;
     overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 .image-side img {
     width: 100%;
     height: 100vh;
+    -o-object-fit: cover;
     object-fit: cover;
+    -o-object-position: center;
     object-position: center;
+    -webkit-filter: brightness(0.72);
     filter: brightness(0.72);
 }
 
 /* Texte overlay sur l'image */
 .overlay-text {
     position: absolute;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 2;
@@ -62,17 +79,26 @@
 /* === Formulaire côté droit === */
 .form-container {
     position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 55%;
     flex: 1 1 55%;
     min-width: 320px;
     max-width: 900px;
     padding: 48px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
-    background: rgba(255,255,255,0.95);;
-    box-shadow: -2px 0 24px rgba(12,20,40,0.06);
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-box-shadow: -2px 0 24px rgba(12, 20, 40, 0.06);
+    box-shadow: -2px 0 24px rgba(12, 20, 40, 0.06);
     z-index: 1;
-
 }
 
 .sous-container {
@@ -85,32 +111,43 @@
     margin-bottom: 30px;
     font-size: 26px;
 }
-.sous-container {
-
-}
 
 form {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     gap: 18px;
 }
 
 .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 16px;
 }
 
 .input-group {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
-    display:flex;
-    flex-direction:column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
 label {
-    font-weight:600;
+    font-weight: 600;
     color: black;
-    margin-bottom:10px;
-    font-size:13px;
+    margin-bottom: 10px;
+    font-size: 13px;
 }
 
 input, select {
@@ -123,87 +160,134 @@ input, select {
 }
 
 input:focus, select:focus {
-    outline:none;
-    border-color:#2563eb;
-    box-shadow:0 6px 20px rgba(37,99,235,0.08);
+    outline: none;
+    border-color: #2563eb;
+    -webkit-box-shadow: 0 6px 20px rgba(37, 99, 235, 0.08);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.08);
 }
 
 button {
     padding: 12px;
     border-radius: 10px;
-    border:none;
-    background: linear-gradient(90deg,#6a11cb,#2575fc);
+    border: none;
+    background: -webkit-gradient(linear, left top, right top, from(#6a11cb), to(#2575fc));
+    background: -o-linear-gradient(left, #6a11cb, #2575fc);
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
     color: #fff;
-    font-weight:700;
-    cursor:pointer;
+    font-weight: 700;
+    cursor: pointer;
     font-size: 15px;
     margin-bottom: 30px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 button:hover {
+    -webkit-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(37,99,235,0.12);
+    -webkit-box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
 }
+
 .redirect a {
     color: #eeeeee;
 }
 
 /* Message d'erreur */
 .erreur {
-    background:#fff1f0;
-    color:#b91c1c;
-    padding:10px;
-    border-radius:8px;
-    text-align:center;
-    font-weight:600;
+    background: #fff1f0;
+    color: #b91c1c;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
 }
 
 /* === Media Queries === */
 @media (max-width: 1200px) {
-    .image-side { flex-basis: 48%; }
+    .image-side {
+        -ms-flex-preferred-size: 48%;
+        flex-basis: 48%;
+    }
     .overlay-text h1 { font-size: 32px; }
 }
 
 @media (max-width: 900px) {
     .image-side { display: none; }
     .form-container {
-        flex:1 1 100%;
-        min-height:100vh;
-        padding:28px;
-        box-shadow:none;
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+        flex: 1 1 100%;
+        min-height: 100vh;
+        padding: 28px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
     }
-    .row { flex-direction: column; }
+    .row {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
 }
 
-@media (min-width:1600px) {
-    .form-container { max-width:980px; margin:0 auto; }
-    .image-side { max-width:900px; }
+@media (min-width: 1600px) {
+    .form-container { max-width: 980px; margin: 0 auto; }
+    .image-side { max-width: 900px; }
 }
 
 /* === Background animé === */
+@-webkit-keyframes animate {
+    0% {
+        -webkit-transform: translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100% {
+        -webkit-transform: translateY(-1000px) rotate(720deg);
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
 @keyframes animate {
-    0% { transform: translateY(0) rotate(0deg); opacity:1; border-radius:0; }
-    100% { transform: translateY(-1000px) rotate(720deg); opacity:0; border-radius:50%; }
+    0% {
+        -webkit-transform: translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100% {
+        -webkit-transform: translateY(-1000px) rotate(720deg);
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
 }
 
 .background {
     position: absolute;
     width: 100%;
     height: 100%;
-    top:0;
-    left:0;
-    margin:0;
-    padding:0;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
     background: #7300ff;
-    overflow:hidden;
+    overflow: hidden;
     z-index: 0;
 }
 
 .background li {
-    position:absolute;
-    display:block;
-    list-style:none;
-    background: rgba(255,255,255,0.2);
+    position: absolute;
+    display: block;
+    list-style: none;
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-animation: animate 17s linear infinite;
     animation: animate 17s linear infinite;
     max-width: 100px;
     max-height: 100px;
@@ -214,6 +298,7 @@ button:hover {
     width: 35px;
     height: 35px;
     bottom: -35px;
+    -webkit-animation-delay: 1s;
     animation-delay: 1s;
 }
 .background li:nth-child(1) {
@@ -221,6 +306,7 @@ button:hover {
     width: 7px;
     height: 7px;
     bottom: -7px;
+    -webkit-animation-delay: 2s;
     animation-delay: 2s;
 }
 .background li:nth-child(2) {
@@ -228,6 +314,7 @@ button:hover {
     width: 6px;
     height: 6px;
     bottom: -6px;
+    -webkit-animation-delay: 2s;
     animation-delay: 2s;
 }
 .background li:nth-child(3) {
@@ -235,6 +322,7 @@ button:hover {
     width: 34px;
     height: 34px;
     bottom: -34px;
+    -webkit-animation-delay: 1s;
     animation-delay: 1s;
 }
 .background li:nth-child(4) {
@@ -242,6 +330,7 @@ button:hover {
     width: 27px;
     height: 27px;
     bottom: -27px;
+    -webkit-animation-delay: 1s;
     animation-delay: 1s;
 }
 .background li:nth-child(5) {
@@ -249,6 +338,7 @@ button:hover {
     width: 29px;
     height: 29px;
     bottom: -29px;
+    -webkit-animation-delay: 4s;
     animation-delay: 4s;
 }
 .background li:nth-child(6) {
@@ -256,6 +346,7 @@ button:hover {
     width: 15px;
     height: 15px;
     bottom: -15px;
+    -webkit-animation-delay: 11s;
     animation-delay: 11s;
 }
 .background li:nth-child(7) {
@@ -263,6 +354,7 @@ button:hover {
     width: 34px;
     height: 34px;
     bottom: -34px;
+    -webkit-animation-delay: 13s;
     animation-delay: 13s;
 }
 .background li:nth-child(8) {
@@ -270,6 +362,7 @@ button:hover {
     width: 10px;
     height: 10px;
     bottom: -10px;
+    -webkit-animation-delay: 24s;
     animation-delay: 24s;
 }
 .background li:nth-child(9) {
@@ -277,6 +370,7 @@ button:hover {
     width: 28px;
     height: 28px;
     bottom: -28px;
+    -webkit-animation-delay: 1s;
     animation-delay: 1s;
 }
 .background li:nth-child(10) {
@@ -284,6 +378,7 @@ button:hover {
     width: 27px;
     height: 27px;
     bottom: -27px;
+    -webkit-animation-delay: 48s;
     animation-delay: 48s;
 }
 .background li:nth-child(11) {
@@ -291,6 +386,7 @@ button:hover {
     width: 44px;
     height: 44px;
     bottom: -44px;
+    -webkit-animation-delay: 12s;
     animation-delay: 12s;
 }
 .background li:nth-child(12) {
@@ -298,6 +394,7 @@ button:hover {
     width: 27px;
     height: 27px;
     bottom: -27px;
+    -webkit-animation-delay: 20s;
     animation-delay: 20s;
 }
 .background li:nth-child(13) {
@@ -305,6 +402,7 @@ button:hover {
     width: 32px;
     height: 32px;
     bottom: -32px;
+    -webkit-animation-delay: 13s;
     animation-delay: 13s;
 }
 .background li:nth-child(14) {
@@ -312,6 +410,7 @@ button:hover {
     width: 31px;
     height: 31px;
     bottom: -31px;
+    -webkit-animation-delay: 23s;
     animation-delay: 23s;
 }
 .background li:nth-child(15) {
@@ -319,6 +418,7 @@ button:hover {
     width: 52px;
     height: 52px;
     bottom: -52px;
+    -webkit-animation-delay: 56s;
     animation-delay: 56s;
 }
 .background li:nth-child(16) {
@@ -326,6 +426,7 @@ button:hover {
     width: 33px;
     height: 33px;
     bottom: -33px;
+    -webkit-animation-delay: 9s;
     animation-delay: 9s;
 }
 .background li:nth-child(17) {
@@ -333,6 +434,7 @@ button:hover {
     width: 21px;
     height: 21px;
     bottom: -21px;
+    -webkit-animation-delay: 69s;
     animation-delay: 69s;
 }
 .background li:nth-child(18) {
@@ -340,6 +442,7 @@ button:hover {
     width: 29px;
     height: 29px;
     bottom: -29px;
+    -webkit-animation-delay: 11s;
     animation-delay: 11s;
 }
 .background li:nth-child(19) {
@@ -347,6 +450,7 @@ button:hover {
     width: 48px;
     height: 48px;
     bottom: -48px;
+    -webkit-animation-delay: 88s;
     animation-delay: 88s;
 }
 .background li:nth-child(20) {
@@ -354,6 +458,7 @@ button:hover {
     width: 41px;
     height: 41px;
     bottom: -41px;
+    -webkit-animation-delay: 56s;
     animation-delay: 56s;
 }
 .background li:nth-child(21) {
@@ -361,6 +466,7 @@ button:hover {
     width: 40px;
     height: 40px;
     bottom: -40px;
+    -webkit-animation-delay: 12s;
     animation-delay: 12s;
 }
 .background li:nth-child(22) {
@@ -368,6 +474,7 @@ button:hover {
     width: 52px;
     height: 52px;
     bottom: -52px;
+    -webkit-animation-delay: 88s;
     animation-delay: 88s;
 }
 .background li:nth-child(23) {
@@ -375,6 +482,7 @@ button:hover {
     width: 37px;
     height: 37px;
     bottom: -37px;
+    -webkit-animation-delay: 102s;
     animation-delay: 102s;
 }
 .background li:nth-child(24) {
@@ -382,6 +490,7 @@ button:hover {
     width: 5px;
     height: 5px;
     bottom: -5px;
+    -webkit-animation-delay: 84s;
     animation-delay: 84s;
 }
 .background li:nth-child(25) {
@@ -389,6 +498,7 @@ button:hover {
     width: 22px;
     height: 22px;
     bottom: -22px;
+    -webkit-animation-delay: 61s;
     animation-delay: 61s;
 }
 .background li:nth-child(26) {
@@ -396,6 +506,7 @@ button:hover {
     width: 56px;
     height: 56px;
     bottom: -56px;
+    -webkit-animation-delay: 39s;
     animation-delay: 39s;
 }
 .background li:nth-child(27) {
@@ -403,6 +514,7 @@ button:hover {
     width: 36px;
     height: 36px;
     bottom: -36px;
+    -webkit-animation-delay: 27s;
     animation-delay: 27s;
 }
 .background li:nth-child(28) {
@@ -410,6 +522,7 @@ button:hover {
     width: 3px;
     height: 3px;
     bottom: -3px;
+    -webkit-animation-delay: 62s;
     animation-delay: 62s;
 }
 .background li:nth-child(29) {
@@ -417,6 +530,7 @@ button:hover {
     width: 41px;
     height: 41px;
     bottom: -41px;
+    -webkit-animation-delay: 80s;
     animation-delay: 80s;
 }
 .background li:nth-child(30) {
@@ -424,6 +538,7 @@ button:hover {
     width: 5px;
     height: 5px;
     bottom: -5px;
+    -webkit-animation-delay: 125s;
     animation-delay: 125s;
 }
 .background li:nth-child(31) {
@@ -431,6 +546,7 @@ button:hover {
     width: 28px;
     height: 28px;
     bottom: -28px;
+    -webkit-animation-delay: 46s;
     animation-delay: 46s;
 }
 .background li:nth-child(32) {
@@ -438,6 +554,7 @@ button:hover {
     width: 29px;
     height: 29px;
     bottom: -29px;
+    -webkit-animation-delay: 93s;
     animation-delay: 93s;
 }
 .background li:nth-child(33) {
@@ -445,6 +562,7 @@ button:hover {
     width: 19px;
     height: 19px;
     bottom: -19px;
+    -webkit-animation-delay: 20s;
     animation-delay: 20s;
 }
 .background li:nth-child(34) {
@@ -452,6 +570,7 @@ button:hover {
     width: 42px;
     height: 42px;
     bottom: -42px;
+    -webkit-animation-delay: 42s;
     animation-delay: 42s;
 }
 .background li:nth-child(35) {
@@ -459,6 +578,7 @@ button:hover {
     width: 12px;
     height: 12px;
     bottom: -12px;
+    -webkit-animation-delay: 21s;
     animation-delay: 21s;
 }
 .background li:nth-child(36) {
@@ -466,6 +586,7 @@ button:hover {
     width: 22px;
     height: 22px;
     bottom: -22px;
+    -webkit-animation-delay: 43s;
     animation-delay: 43s;
 }
 .background li:nth-child(37) {
@@ -473,6 +594,7 @@ button:hover {
     width: 13px;
     height: 13px;
     bottom: -13px;
+    -webkit-animation-delay: 37s;
     animation-delay: 37s;
 }
 .background li:nth-child(38) {
@@ -480,6 +602,7 @@ button:hover {
     width: 39px;
     height: 39px;
     bottom: -39px;
+    -webkit-animation-delay: 117s;
     animation-delay: 117s;
 }
 .background li:nth-child(39) {
@@ -487,6 +610,7 @@ button:hover {
     width: 28px;
     height: 28px;
     bottom: -28px;
+    -webkit-animation-delay: 128s;
     animation-delay: 128s;
 }
 .background li:nth-child(40) {
@@ -494,6 +618,7 @@ button:hover {
     width: 56px;
     height: 56px;
     bottom: -56px;
+    -webkit-animation-delay: 11s;
     animation-delay: 11s;
 }
 .background li:nth-child(41) {
@@ -501,6 +626,7 @@ button:hover {
     width: 56px;
     height: 56px;
     bottom: -56px;
+    -webkit-animation-delay: 124s;
     animation-delay: 124s;
 }
 .background li:nth-child(42) {
@@ -508,6 +634,7 @@ button:hover {
     width: 35px;
     height: 35px;
     bottom: -35px;
+    -webkit-animation-delay: 127s;
     animation-delay: 127s;
 }
 .background li:nth-child(43) {
@@ -515,6 +642,7 @@ button:hover {
     width: 40px;
     height: 40px;
     bottom: -40px;
+    -webkit-animation-delay: 43s;
     animation-delay: 43s;
 }
 .background li:nth-child(44) {
@@ -522,6 +650,7 @@ button:hover {
     width: 52px;
     height: 52px;
     bottom: -52px;
+    -webkit-animation-delay: 153s;
     animation-delay: 153s;
 }
 .background li:nth-child(45) {
@@ -529,6 +658,7 @@ button:hover {
     width: 5px;
     height: 5px;
     bottom: -5px;
+    -webkit-animation-delay: 107s;
     animation-delay: 107s;
 }
 .background li:nth-child(46) {
@@ -536,6 +666,7 @@ button:hover {
     width: 37px;
     height: 37px;
     bottom: -37px;
+    -webkit-animation-delay: 78s;
     animation-delay: 78s;
 }
 .background li:nth-child(47) {
@@ -543,6 +674,7 @@ button:hover {
     width: 10px;
     height: 10px;
     bottom: -10px;
+    -webkit-animation-delay: 184s;
     animation-delay: 184s;
 }
 .background li:nth-child(48) {
@@ -550,6 +682,7 @@ button:hover {
     width: 9px;
     height: 9px;
     bottom: -9px;
+    -webkit-animation-delay: 96s;
     animation-delay: 96s;
 }
 .background li:nth-child(49) {
@@ -557,5 +690,6 @@ button:hover {
     width: 40px;
     height: 40px;
     bottom: -40px;
+    -webkit-animation-delay: 179s;
     animation-delay: 179s;
 }

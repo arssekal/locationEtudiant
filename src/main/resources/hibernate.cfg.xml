@@ -1,10 +1,9 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <!--        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/location_etudiants?useSSL=false&amp;serverTimezone=UTC</property>-->
-        <!--        <property name="hibernate.connection.username">root</property>-->
-        <!--        <property name="hibernate.connection.password">Svvw2098</property>-->
-        <!--        ?useSSL=false&amp;serverTimezone=UTC -->
+<!--        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/location_etudiants</property>-->
+<!--        <property name="hibernate.connection.username">root</property>-->
+<!--        <property name="hibernate.connection.password">Svvw2098</property>-->
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/locationetudiants</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">mysqlworkbench@123</property>
@@ -13,5 +12,10 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <mapping class="model.Utilisateur"/>
+        <mapping class="model.Annonce"/>
+        <mapping class="model.Message"/>
+        <mapping class="model.Favori"/>
+        <mapping class="model.VueAnnonce"/>
+
     </session-factory>
 </hibernate-configuration>

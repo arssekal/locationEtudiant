@@ -18,8 +18,7 @@ public class VerifierCodeServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/utilisateur/dashboard");
         } else {
             request.setAttribute("erreur", "Code de vérification est incorrect !");
-            request.getRequestDispatcher("jsp/verifier_code.jsp").forward(request, response);
+            request.getRequestDispatcher("/jsp/verifier_code.jsp").forward(request, response);
         }
     }
 }
-

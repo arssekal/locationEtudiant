@@ -2,52 +2,74 @@
 *,
 *::before,
 *::after {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box; /* Important pour éviter overflow */
 }
 
 body {
     margin: 0;
     height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-family: 'Segoe UI', sans-serif;
     background: #f5f7fa;
 }
 
 .page-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 90%;
     max-width: 1000px;
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    background-color: white
+    -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 .image-side {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
     overflow: hidden;
     position: relative;
-    background: rgb(255 255 255 / 15%);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .image-side img {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
+    -o-object-position: center;
     object-position: center;
 }
 
 .form-side {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     padding: 50px;
     z-index: 5;
-    background: rgb(255 255 255 / 15%);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .form-container {
@@ -87,6 +109,8 @@ input {
     border: 1px solid #ccc;
     font-size: 14px;
     outline: none;
+    -webkit-transition: border-color 0.3s ease;
+    -o-transition: border-color 0.3s ease;
     transition: border-color 0.3s ease;
 }
 
@@ -97,6 +121,8 @@ input:focus {
 .btn-login {
     width: 100%;
     padding: 12px;
+    background: -webkit-gradient(linear, left top, right top, from(#43C6AC), to(#191654));
+    background: -o-linear-gradient(left, #43C6AC, #191654);
     background: linear-gradient(90deg, #43C6AC, #191654);
     color: white;
     border: none;
@@ -104,41 +130,62 @@ input:focus {
     font-weight: bold;
     cursor: pointer;
     margin-top: 10px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
     transition: 0.3s;
 }
 
 .btn-login:hover {
     opacity: 0.9;
 }
+
 /* loader */
 .custom-loader {
-  width: 25px;
-  height: 25px;
-  display: grid;
-  border-radius: 50%;
-  -webkit-mask: radial-gradient(farthest-side,#0000 40%,#000 41%);
-  background:
-      linear-gradient(0deg, rgba(255,255,255,0.3) 50%, rgba(255,255,255,1) 0) center/2px 100%,
-      linear-gradient(90deg, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.75) 0) center/100% 2px;
-  background-repeat: no-repeat;
-  animation: s3 1s infinite steps(12);
+    width: 25px;
+    height: 25px;
+    display: grid;
+    border-radius: 50%;
+    -webkit-mask: radial-gradient(farthest-side, #0000 40%, #000 41%);
+    mask: radial-gradient(farthest-side, #0000 40%, #000 41%);
+    background:
+            linear-gradient(0deg, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 1) 0) center/2px 100%,
+            linear-gradient(90deg, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.75) 0) center/100% 2px;
+    background-repeat: no-repeat;
+    -webkit-animation: s3 1s infinite steps(12);
+    animation: s3 1s infinite steps(12);
 }
+
 .custom-loader::before,
 .custom-loader::after {
-   content:"";
-   grid-area: 1/1;
-   border-radius: 50%;
-   background:inherit;
-   opacity: 0.915;
-   transform: rotate(30deg);
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.915;
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
 }
+
 .custom-loader::after {
-   opacity: 0.83;
-   transform: rotate(60deg);
+    opacity: 0.83;
+    -webkit-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    transform: rotate(60deg);
+}
+
+@-webkit-keyframes s3 {
+    100% {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
 }
 
 @keyframes s3 {
-  100% {transform: rotate(1turn)}
+    100% {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
 }
 /* end loader */
 
@@ -166,6 +213,7 @@ input:focus {
     font-weight: 500;
     text-align: center;
     letter-spacing: 0.3px;
+    -webkit-animation: fadeIn 0.3s ease-in;
     animation: fadeIn 0.3s ease-in;
 }
 
@@ -181,13 +229,28 @@ input:focus {
     border: 1px solid #8aff9c;
 }
 
-@keyframes fadeIn {
+@-webkit-keyframes fadeIn {
     from {
         opacity: 0;
+        -webkit-transform: translateY(-5px);
         transform: translateY(-5px);
     }
     to {
         opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
         transform: translateY(0);
     }
 }
@@ -195,6 +258,9 @@ input:focus {
 /* ----- Mobile / Responsive ----- */
 @media (max-width: 900px) {
     .page-container {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         width: 95%;
         max-width: 400px;
@@ -205,7 +271,11 @@ input:focus {
     .form-side {
         width: 100%;
         padding: 30px 15px; /* padding réduit pour mobile */
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
     }
 
@@ -215,7 +285,7 @@ input:focus {
     }
 
     input {
-        width: 100%; /* s’assure qu’ils ne dépassent jamais */
+        width: 100%; /* s'assure qu'ils ne dépassent jamais */
     }
 
     .image-side {
@@ -223,15 +293,28 @@ input:focus {
     }
 }
 
-
-
 /* === Background animé === */
-@keyframes cube {
+@-webkit-keyframes cube {
     from {
+        -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
         transform: scale(0) rotate(0deg) translate(-50%, -50%);
         opacity: 1;
     }
     to {
+        -webkit-transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+@keyframes cube {
+    from {
+        -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        -webkit-transform: scale(20) rotate(960deg) translate(-50%, -50%);
         transform: scale(20) rotate(960deg) translate(-50%, -50%);
         opacity: 0;
     }
@@ -248,6 +331,7 @@ input:focus {
     background: #0020c2;
     overflow: hidden;
 }
+
 .background li {
     position: absolute;
     top: 80vh;
@@ -256,12 +340,18 @@ input:focus {
     height: 10px;
     border: solid 1px #001cae;
     color: transparent;
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
     transform-origin: top left;
+    -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    -ms-transform: scale(0) rotate(0deg) translate(-50%, -50%);
     transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    -webkit-animation: cube 5s ease-in forwards infinite;
     animation: cube 5s ease-in forwards infinite;
 }
-undefined
+
 .background li:nth-child(0) {
+    -webkit-animation-delay: 0s;
     animation-delay: 0s;
     left: 1vw;
     top: 34vh;
@@ -269,6 +359,7 @@ undefined
 }
 
 .background li:nth-child(1) {
+    -webkit-animation-delay: 2s;
     animation-delay: 2s;
     left: 18vw;
     top: 22vh;
@@ -276,6 +367,7 @@ undefined
 }
 
 .background li:nth-child(2) {
+    -webkit-animation-delay: 4s;
     animation-delay: 4s;
     left: 65vw;
     top: 93vh;
@@ -283,18 +375,21 @@ undefined
 }
 
 .background li:nth-child(3) {
+    -webkit-animation-delay: 6s;
     animation-delay: 6s;
     left: 84vw;
     top: 10vh;
 }
 
 .background li:nth-child(4) {
+    -webkit-animation-delay: 8s;
     animation-delay: 8s;
     left: 48vw;
     top: 69vh;
 }
 
 .background li:nth-child(5) {
+    -webkit-animation-delay: 10s;
     animation-delay: 10s;
     left: 75vw;
     top: 51vh;

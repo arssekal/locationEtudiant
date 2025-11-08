@@ -1,92 +1,92 @@
 /* style.css */
 
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    font-family: 'Poppins', sans-serif;
 }
 
 .card {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: 380px;
-  padding: 30px;
-  text-align: center;
-  transition: transform 0.2s ease-in-out;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 380px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
 .card-header h2 {
-  margin: 0 0 20px 0;
-  font-size: 1.6rem;
-  color: #333;
+    margin: 0 0 20px 0;
+    font-size: 1.6rem;
+    color: #333;
 }
 
 .erreur {
-  background: #ffe6e6;
-  color: #d63031;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  font-size: 0.9rem;
-  border: 1px solid #ff7675;
+    background: #ffe6e6;
+    color: #d63031;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    border: 1px solid #ff7675;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 label {
-  font-weight: 500;
-  color: #555;
-  text-align: left;
-  margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+    text-align: left;
+    margin-bottom: 5px;
 }
 
 input[type="text"] {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus {
-  outline: none;
-  border-color: #4a90e2;
-  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
 }
 
 button {
-  background: #4a90e2;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
+    background: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 button:hover {
-  background: #357abd;
+    background: #357abd;
 }
 
 .help {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  color: #777;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #777;
 }
 
 
@@ -203,4 +203,3 @@ button:hover {
     position: relative;
     z-index: 10;
 }
-
