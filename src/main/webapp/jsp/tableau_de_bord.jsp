@@ -3,7 +3,12 @@
 <%
     Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur");
     if (utilisateur == null) {
-        response.sendRedirect(request.getContextPath() + "/jsp/login.jsp");
+        response.sendRedirect(request.getContextPath() + "/utilisateur/login");
+        return;
+    }
+    boolean isVerified = (boolean) session.getAttribute("isVerified");
+    if (!isVerified) {
+        response.sendRedirect(request.getContextPath() + "/utilisateur/verification");
         return;
     }
 %>
@@ -15,6 +20,18 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/tableau_de_bord.css">
 </head>
 <body>
+<ul class="background">
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+</ul>
 <div class="dashboard-container">
     <header>
         <h1>Bienvenue, <%= utilisateur.getNom() %> 👋</h1>

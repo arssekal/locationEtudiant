@@ -11,9 +11,18 @@
         <servlet-name>utilisateur</servlet-name>
         <servlet-class>controller.UtilisateurServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>utilisateur</servlet-name>
         <url-pattern>/utilisateur/*</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>verifier-code</servlet-name>
+        <servlet-class>controller.VerifierCodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>verifier-code</servlet-name>
+        <url-pattern>/verification</url-pattern>
+    </servlet-mapping>
+
 </web-app>

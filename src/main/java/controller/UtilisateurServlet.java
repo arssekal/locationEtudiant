@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpSession;
 import model.Utilisateur;
 import org.hibernate.Session;
 import service.UtilisateurService;
+import util.EmailUtil;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,8 +23,9 @@ public class UtilisateurServlet extends HttpServlet {
 
         if (path == null || path.equals("/login")) {
             request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
-        }
-        else if (path.equals("/inscription")) {
+        } else if (path.equals("/verification")) {
+            request.getRequestDispatcher("/jsp/verifier_code.jsp").forward(request, response);
+        } else if (path.equals("/inscription")) {
             request.getRequestDispatcher("/jsp/inscription.jsp").forward(request, response);
         }
         else if (path.equals("/dashboard")) {
@@ -125,9 +127,22 @@ public class UtilisateurServlet extends HttpServlet {
             . Les attributs mis avec request.setAttribute() sont donc perdus.
             . D’où la nécessité d’utiliser la session si tu veux conserver les données d’un utilisateur connecté
              */
-            HttpSession session = request.getSession();
-            session.setAttribute("utilisateur", utilisateur);
-            response.sendRedirect(request.getContextPath() + "/utilisateur/dashboard");
+            // Après vérification du mot de passe correct
+            int codeVerification = (int) (Math.random() * 900000) + 100000; // 6 chiffres
+
+            // Enregistrer le code et l'utilisateur dans la session temporairement
+            request.getSession().setAttribute("codeVerification", codeVerification);
+            request.getSession().setAttribute("emailUtilisateur", utilisateur.getEmail());
+            request.getSession().setAttribute("utilisateur", utilisateur);
+            request.getSession().setAttribute("isVerified", false);
+
+            // Envoyer l'email
+            String sujet = "Code de vérification - Location Étudiante";
+            String corps = "Bonjour " + utilisateur.getNom() + ",\n\nVotre code de vérification est : " + codeVerification + "\n\nCe code est valable 10 minutes.";
+            EmailUtil.sendEmail(utilisateur.getEmail(), sujet, corps);
+
+            // Rediriger vers la page de vérification du code
+            response.sendRedirect(request.getContextPath() + "/utilisateur/verification");
         } else {
             request.setAttribute("messageErreur", "Email ou mot de passe incorrect !");
             request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
