@@ -7,9 +7,17 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/login.css">
 </head>
 <body>
+<ul class="background">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
 <div class="page-container">
     <div class="image-side">
-        <img src="<%=request.getContextPath()%>/images/test.jpg" alt="Étudiants se rencontrant">
+        <img src="<%=request.getContextPath()%>/images/test2.png" alt="Étudiants se rencontrant">
     </div>
 
     <div class="form-side">
@@ -41,10 +49,13 @@
 
                 <div class="input-group">
                     <label>Mot de passe</label>
-                    <input type="password" name="motDePasse" placeholder="********" required autocomplete="new-password">
+                    <input type="password" name="motDePasse" placeholder="" required autocomplete="new-password">
                 </div>
 
-                <button type="submit" class="btn-login">Se connecter</button>
+                <button type="submit" class="btn-login">
+                    <span class="btn-text">Se connecter</span>
+                    <div class="custom-loader" style="display:none;"></div>
+                </button>
             </form>
 
             <p class="register-link">Pas encore inscrit ?
@@ -53,5 +64,23 @@
         </div>
     </div>
 </div>
+<script>
+    const form = document.querySelector('form');
+    const btn = form.querySelector('.btn-login');
+    const btnText = btn.querySelector('.btn-text');
+    const spinner = btn.querySelector('.custom-loader');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        btn.disabled = true;
+        btnText.style.display = 'none';
+        spinner.style.display = 'inline-block';
+
+        setTimeout(() => {
+            form.submit();
+        }, 3000);
+    });
+</script>
+
 </body>
 </html>

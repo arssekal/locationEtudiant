@@ -23,7 +23,7 @@ public class UtilisateurDAO {
     public void update(Utilisateur utilisateurModifie) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            int id = utilisateurModifie.getId();
+            int id = Math.toIntExact(utilisateurModifie.getId());
             Utilisateur utilisateurExistant = session.find(Utilisateur.class, id);
             if (utilisateurExistant != null) {
                 transaction = session.beginTransaction();
@@ -57,7 +57,7 @@ public class UtilisateurDAO {
             throw new RuntimeException("Erreur lors de suppression de l'utilisateur", e);
         }
     }
-    public Utilisateur findById(int id) throws RuntimeException {
+    public Utilisateur findById(Long id) throws RuntimeException {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Utilisateur utilisateur = session.find(Utilisateur.class, id);
             if (utilisateur == null) {

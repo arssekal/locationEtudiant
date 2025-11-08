@@ -69,7 +69,7 @@ public class UtilisateurService {
         return erreurs;
     }
 
-    public Utilisateur getUtilisateurParId(int id) {
+    public Utilisateur getUtilisateurParId(Long id) {
         return utilisateurDAO.findById(id);
     }
 }
