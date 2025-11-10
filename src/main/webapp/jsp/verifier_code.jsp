@@ -3,6 +3,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vérification du code</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/verification.css">
 </head>
@@ -33,7 +34,9 @@
     <form action="<%= request.getContextPath()%>/verification" method="post" novalidate>
         <label for="code">Entrez le code reçu par email :</label>
         <input id="code" type="text" name="code" required autocomplete="one-time-code" inputmode="numeric" pattern="[0-9]{4,8}">
-        <button type="submit">Vérifier</button>
+        <button type="submit">
+            <span class="text">Vérifier</span>
+        </button>
     </form>
 
     <p class="help">Nous avons envoyé un code à votre adresse e-mail.</p>

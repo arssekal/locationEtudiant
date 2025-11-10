@@ -3,6 +3,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - Location Étudiante</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/inscription.css">
 </head>
@@ -75,10 +76,11 @@
                     </div>
                 </div>
 
-                <button type="submit">S’inscrire</button>
+                <button type="submit" class="btn-grad ">S’inscrire</button>
             </form>
 
-            <p class="redirect">Déjà inscrit ?
+            <p class="
+">Déjà inscrit ?
                 <a href="<%=request.getContextPath()%>/utilisateur/login">Connectez-vous ici</a>
             </p>
         </div>

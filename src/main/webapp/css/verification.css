@@ -2,8 +2,8 @@
 
 body {
     margin: 0;
-    padding: 0;
-    height: 100vh;
+    padding: 20px;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,13 +12,13 @@ body {
 }
 
 .card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    width: 380px;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,51,102,1) 0%, rgba(0,102,204,1) 49.5%, rgba(0,191,255,1) 90% );    width: 380px;
+    max-width: 100%;
     padding: 30px;
     text-align: center;
     transition: transform 0.2s ease-in-out;
+    position: relative;
+    z-index: 10;
 }
 
 .card:hover {
@@ -28,7 +28,7 @@ body {
 .card-header h2 {
     margin: 0 0 20px 0;
     font-size: 1.6rem;
-    color: #333;
+    color: #eeeeee;
 }
 
 .erreur {
@@ -49,7 +49,7 @@ form {
 
 label {
     font-weight: 500;
-    color: #555;
+    color: #bdbdbd;
     text-align: left;
     margin-bottom: 5px;
 }
@@ -68,27 +68,61 @@ input[type="text"]:focus {
     box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
 }
 
+/**/
+/* From Uiverse.io by adamgiebl */
 button {
-    background: #4a90e2;
-    color: #fff;
-    border: none;
+    align-items: center;
+    background-image: linear-gradient(144deg,#FF9A76, #FF6363 50%,#FF1E62);
+    border: 0;
     border-radius: 8px;
-    padding: 12px;
-    font-size: 1rem;
+    box-shadow: rgba(255, 154, 118, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 18px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: all .3s;
 }
 
+button:active,
 button:hover {
-    background: #357abd;
+    outline: 0;
 }
+
+button span {
+    background-color: rgb(5, 6, 45);
+    padding: 16px 24px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+}
+
+button:hover span {
+    background: none;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+/**/
 
 .help {
     margin-top: 20px;
     font-size: 0.9rem;
-    color: #777;
+    color: #e0e0e0;
 }
-
 
 /* === Background animé === */
 @keyframes animate {
@@ -112,9 +146,9 @@ button:hover {
     left: 0;
     margin: 0;
     padding: 0;
-    background: #4fc984; /* tu peux changer la couleur si tu veux */
+    background: #4fc984;
     overflow: hidden;
-    z-index: 1; /* bien derrière la card */
+    z-index: 1;
 }
 
 .background li {
@@ -198,8 +232,113 @@ button:hover {
     animation-delay: 30s;
 }
 
-/* Assurer que la card soit au-dessus du background */
-.card {
-    position: relative;
-    z-index: 10;
+/* ----- Tablet / Medium Screens ----- */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 450px;
+        padding: 35px 25px;
+    }
+
+    .card-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ----- Mobile / Small Screens ----- */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+        min-height: 100vh;
+    }
+
+    .card {
+        width: 95%;
+        max-width: 100%;
+        padding: 40px 25px;
+        border-radius: 14px;
+    }
+
+    .card:hover {
+        transform: translateY(-2px);
+    }
+
+    .card-header h2 {
+        font-size: 1.4rem;
+        margin-bottom: 18px;
+    }
+
+    label {
+        font-size: 0.95rem;
+    }
+
+    input[type="text"] {
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    .help {
+        font-size: 0.85rem;
+        margin-top: 18px;
+    }
+
+    .erreur {
+        font-size: 0.85rem;
+        padding: 12px;
+    }
+
+    /* Réduire les animations sur mobile pour performance */
+    .background li {
+        animation-duration: 15s;
+    }
+}
+
+/* ----- Very Small Screens ----- */
+@media (max-width: 360px) {
+    body {
+        padding: 10px;
+    }
+
+    .card {
+        width: 100%;
+        padding: 35px 20px;
+        border-radius: 12px;
+    }
+
+    .card-header h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    input[type="text"] {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    .help {
+        font-size: 0.8rem;
+    }
+
+    .erreur {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
 }
