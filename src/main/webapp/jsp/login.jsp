@@ -3,6 +3,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Location Étudiante</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/login.css">
 </head>
@@ -51,7 +52,6 @@
                     <label>Mot de passe</label>
                     <input type="password" name="motDePasse" placeholder="" required autocomplete="new-password">
                 </div>
-
                 <button type="submit" class="btn-login">
                     <span class="btn-text">Se connecter</span>
                     <div class="custom-loader" style="display:none;"></div>
@@ -75,12 +75,10 @@
         btn.disabled = true;
         btnText.style.display = 'none';
         spinner.style.display = 'inline-block';
-
         setTimeout(() => {
             form.submit();
         }, 3000);
     });
 </script>
-
 </body>
 </html>
