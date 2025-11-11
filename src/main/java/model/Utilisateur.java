@@ -37,6 +37,15 @@ public class Utilisateur {
     @OneToMany(mappedBy = "proprietaire")
     private List<Annonce> annonces;
 
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Favori> favoris;
+
+    @OneToMany(mappedBy = "expediteur")
+    private List<Message> messagesEnvoyes;
+
+    @OneToMany(mappedBy = "destinataire")
+    private List<Message> messagesRecus;
+
     public LocalDateTime getDateInscription() {
         return dateInscription;
     }
@@ -77,14 +86,6 @@ public class Utilisateur {
         this.messagesRecus = messagesRecus;
     }
 
-    @OneToMany(mappedBy = "utilisateur")
-    private List<Favori> favoris;
-
-    @OneToMany(mappedBy = "expediteur")
-    private List<Message> messagesEnvoyes;
-
-    @OneToMany(mappedBy = "destinataire")
-    private List<Message> messagesRecus;
 
 
     public int getId(int id) { return this.id;}

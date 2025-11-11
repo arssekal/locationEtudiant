@@ -79,8 +79,7 @@
                 <button type="submit" class="btn-grad ">S’inscrire</button>
             </form>
 
-            <p class="
-">Déjà inscrit ?
+            <p class="redirect">Déjà inscrit ?
                 <a href="<%=request.getContextPath()%>/utilisateur/login">Connectez-vous ici</a>
             </p>
         </div>

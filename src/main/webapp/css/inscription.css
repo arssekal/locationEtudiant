@@ -212,7 +212,7 @@ input:focus, select:focus {
 .redirect {
     text-align: center;
     color: #eeeeee;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .redirect a {
