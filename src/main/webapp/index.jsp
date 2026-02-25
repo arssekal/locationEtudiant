@@ -940,7 +940,7 @@
                                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;">
                                     <i class="fas fa-sign-in-alt"></i> Se Connecter
                                 </a>
-                                <a href="${pageContext.request.contextPath}/utilisateur/login"
+                                <a href="${pageContext.request.contextPath}/utilisateur/inscription"
                                    class="btn btn-outline-secondary btn-lg">
                                     <i class="fas fa-user-plus"></i> Créer un Compte Gratuit
                                 </a>

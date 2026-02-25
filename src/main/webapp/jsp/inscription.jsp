@@ -24,7 +24,7 @@
         <!-- Background animé -->
         <ul class="background">
             <%-- 50 <li> pour animation --%>
-            <% for(int i=0; i<50; i++) { %>
+            <% for(int i=0; i<45; i++) { %>
             <li></li>
             <% } %>
         </ul>
