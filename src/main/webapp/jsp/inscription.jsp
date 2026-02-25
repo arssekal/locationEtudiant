@@ -24,7 +24,7 @@
         <!-- Background animé -->
         <ul class="background">
             <%-- 50 <li> pour animation --%>
-            <% for(int i=0; i<50; i++) { %>
+            <% for(int i=0; i<45; i++) { %>
             <li></li>
             <% } %>
         </ul>
@@ -79,8 +79,7 @@
                 <button type="submit" class="btn-grad ">S’inscrire</button>
             </form>
 
-            <p class="
-">Déjà inscrit ?
+            <p class="redirect">Déjà inscrit ?
                 <a href="<%=request.getContextPath()%>/utilisateur/login">Connectez-vous ici</a>
             </p>
         </div>

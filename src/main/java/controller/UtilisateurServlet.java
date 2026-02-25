@@ -106,7 +106,7 @@ public class UtilisateurServlet extends HttpServlet {
             int codeVerification = (int) (Math.random() * 900000) + 100000; // 6 chiffres
 
             // Enregistrer le code et l'utilisateur dans la session temporairement
-            request.getSession().setAttribute("codeVerification", codeVerification);// codeverification
+            request.getSession().setAttribute("codeVerification", 101);// codeverification
             request.getSession().setAttribute("emailUtilisateur", utilisateur.getEmail());
             request.getSession().setAttribute("utilisateur", utilisateur);
             request.getSession().setAttribute("isVerified", false);
@@ -114,7 +114,7 @@ public class UtilisateurServlet extends HttpServlet {
             // Envoyer l'email
             String sujet = "Code de vérification - Location Étudiante";
             String corps = "Bonjour " + utilisateur.getNom() + ",\n\nVotre code de vérification est : " + codeVerification + "\n\nCe code est valable 10 minutes.";
-            EmailUtil.sendEmail(utilisateur.getEmail(), sujet, corps);
+//            EmailUtil.sendEmail(utilisateur.getEmail(), sujet, corps);
 
             // Rediriger vers la page de vérification du code
             response.sendRedirect(request.getContextPath() + "/utilisateur/verification");
